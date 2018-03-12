@@ -1,19 +1,80 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.css'; 
 
-class App extends Component {
+class SiteBlock extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      
+    );
+  }
+}
+
+class ContactForm extends Component {
+
+  handleSubmit(e) {
+    this.props.handleSubmit(e);
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+        Name
+        <input type="text" />
+        </label>
+        <label>
+        Email
+        <input type="text" />
+        </label>
+        <label>
+        Subject
+        <input type="text" />
+        </label>
+        <label>
+        Content
+        <textarea type="textarea" />
+        </label>
+      </form>
+    );
+  }
+}
+
+class ExpandButton extends Component {
+  
+  handleClick(e) {
+    e.preventDefault();
+    this.props.handleClick();
+  }
+
+  render() {
+    return(
+      <span className='expand' onClick={this.handleClick}>+expand</span>
+    );
+  }
+}
+
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
+
+  handleSubmit(e) {
+
+  }
+
+  expandSection() {
+
+  }
+
+
+  render() {
+    return (
+      <ContactForm />
     );
   }
 }
