@@ -1,5 +1,20 @@
-[{
-  "title": "Web Development",
-  "content": ""
- },
+[
+	{
+  		"title": "Web Development",
+  		"content": "",
+  		"header": "http://michaelburnley.com/assets/images/csharpsnapshot.png",
+  		"img_alt": "Web Development Header"
+ 	},
+	{
+  		"title": "Game Development",
+  		"content": "",
+  		"header": "http://michaelburnley.com/assets/images/csharpsnapshot.png",
+  		"img_alt": "Game Development Header"
+ 	},
+	{
+  		"title": "Web Development",
+  		"content": "",
+  		"header": "http://michaelburnley.com/assets/images/csharpsnapshot.png",
+  		"img_alt": "Web Development Header"
+ 	}
 ]

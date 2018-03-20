@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css'; 
 import sb from './site-block-information.json'
 
@@ -15,6 +14,7 @@ class SiteBlock extends Component {
       console.log("entering map");
       arr.push(
         <div className="site-block">
+          <img className="sb-header" src={block.header} alt={block.image_alt}/>
           <h2 className="title">{block.title}</h2>
           <div className="content">{block.content}</div>
           <ExpandButton
