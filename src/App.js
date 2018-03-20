@@ -8,13 +8,30 @@ class SiteBlock extends Component {
 
   }
 
+ createBlocks() {
+    let arr = [];
+    console.log("in createBlocks");
+    this.props.blocks.map(function(block){
+      console.log("entering map");
+      arr.push(
+        <div className="site-block">
+          <h2 className="title">{block.title}</h2>
+          <div className="content">{block.content}</div>
+          <ExpandButton
+            handleClick={this.handleExpand()} />
+        </div>
+      );
+
+    }.bind(this));
+
+    return arr;
+  }
+
   render() {
     return (
-      <div className="site-block">
-        <h2></h2>
+      <div>
+        {this.createBlocks()}
       </div>
-      <ExpandButton 
-        handleClick={this.handleExpand} />
     );
   }
 }
@@ -27,7 +44,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div>
+      <div id="contact">
         <form onSubmit={this.handleSubmit}>
           <label>
           Name
@@ -51,28 +68,23 @@ class ContactForm extends Component {
   }
 }
 
-class ExpandButton extends Component {
-  
-  handleClick(e) {
+const ExpandButton = (props) => {
+  var handleClick = (e) => {
     e.preventDefault();
-    this.props.handleClick();
+    props.handleClick();
   }
 
-  render() {
-    return(
-      <span className='expand' onClick={this.handleClick}>+expand</span>
-    );
-  }
+  return(
+    <span className='expand' onClick={handleClick}>+expand</span>
+  )
 }
-
-
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      blocks = sb
+      blocks: sb
     }
   }
 
@@ -85,12 +97,16 @@ class App extends Component {
   }
 
 
+
+
   render() {
     return (
+      <div>
+      <SiteBlock 
+        blocks={this.state.blocks} />
       <ContactForm 
         handleSubmit={this.contactSubmit} />
-      <SiteBlock />
-
+      </div>
     );
   }
 }
