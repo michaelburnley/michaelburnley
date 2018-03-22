@@ -14,11 +14,13 @@ class SiteBlock extends Component {
       console.log("entering map");
       arr.push(
         <div className="site-block">
-          <img className="sb-header" src={block.header} alt={block.image_alt}/>
-          <h2 className="title">{block.title}</h2>
-          <div className="content">{block.content}</div>
-          <ExpandButton
+          <div className="title-block">
+            <img className="sb-header" src={block.header} alt={block.image_alt}/>
+            <h2 className="title">{block.title}</h2>
+            <ExpandButton
             handleClick={this.handleExpand()} />
+          </div>
+          <div className="content">{block.content}</div>
         </div>
       );
 
@@ -29,21 +31,20 @@ class SiteBlock extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         {this.createBlocks()}
       </div>
     );
   }
 }
 
-class ContactForm extends Component {
 
-  handleSubmit(e) {
-    this.props.handleSubmit(e);
+const ContactForm = (props) => {
+  let handleSubmit = (e) => {
+    props.handleSubmit(e);
   }
 
-  render() {
-    return (
+  return(
       <div id="contact">
         <form onSubmit={this.handleSubmit}>
           <label>
@@ -64,8 +65,8 @@ class ContactForm extends Component {
           </label>
         </form>
       </div>
-    );
-  }
+  );
+
 }
 
 const ExpandButton = (props) => {
