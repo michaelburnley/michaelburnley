@@ -3,8 +3,25 @@ import './App.css';
 import sb from './site-block-information.json'
 
 class SiteBlock extends Component {
-  handleExpand(){
+  
+  constructor() {
+    super();
+    this.state = {
+      isExpanded: false
+    }
+  }
 
+  toggleExpand() {
+
+    if (!this.state.isExpanded) {
+      this.setState({
+        isExpanded: true
+      });
+    } else {    
+      this.setState({
+        isExpanded: false
+      })
+    }
   }
 
  createBlocks() {
@@ -18,9 +35,13 @@ class SiteBlock extends Component {
             <img className="sb-header" src={block.header} alt={block.image_alt}/>
             <h2 className="title">{block.title}</h2>
             <ExpandButton
-            handleClick={this.handleExpand()} />
+            handleClick={this.toggleExpand.bind(this)} />
           </div>
-          <div className="content">{block.content}</div>
+          <div className="content">
+            {
+              this.state.isExpanded ? block.content : null
+            }
+          </div>
         </div>
       );
 
@@ -104,7 +125,8 @@ class App extends Component {
     return (
       <div>
       <SiteBlock 
-        blocks={this.state.blocks} />
+        blocks={this.state.blocks}
+        handleClick={this.expandSection}/>
       <ContactForm 
         handleSubmit={this.contactSubmit} />
       </div>
