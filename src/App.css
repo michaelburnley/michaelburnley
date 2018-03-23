@@ -7,7 +7,7 @@ input {
 }
 
 .site-block {
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 
@@ -46,4 +46,56 @@ input {
 
 .expand:hover {
   color: red;
+}
+
+img {
+  width: 100%;
+}
+
+.content {
+  background: #afafaf57;
+}
+
+.hello {
+  display: inline-block;
+  width: 100%;
+}
+
+.hello_block {
+  width: 32%;
+  display: inline-block;
+  max-height: 200px;
+}
+
+.btn {
+  width: 100%;
+  background: blue;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:   3px 3px 5px 6px #ccc;
+}
+
+.btn:hover {
+  background: red;
+}
+
+.social {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  margin: auto;
+}
+
+.social-link {
+  width: 25%;
+  display: inline-block;
+}
+
+#contact {
+  background: black;
+  color: white;
+  margin: auto;
 }

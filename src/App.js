@@ -1,6 +1,45 @@
 import React, { Component } from 'react';
 import './App.css'; 
+import logo from './logo.png'
 import sb from './site-block-information.json'
+
+const ResumeModal = () => {
+  return(
+    <a href="" download="Resume-MichaelBurnley">Download</a>
+  );
+}
+
+const HelloBlock = () => {
+
+  const contactClick = (e) => {
+    return <ContactForm />;
+  }
+
+  const resumeClick = (e) => {
+    return <ResumeModal />
+  }
+
+  return(
+    <div className="hello">
+      <div className="hello_block">
+        <img src={logo} id="logo" alt="logo" />
+      </div>
+      <div className="hello_block">
+        <p>My name is Michael Burnley and I am a web and game developer.</p>
+        <div className="social">
+          <div className="social-link"><a href="https://github.com/michaelburnley"><img alt="github" src="http://michaelburnley.com/assets/images/github.png" /></a></div>
+          <div className="social-link"><a href="https://twitter.com/michaelburnley"><img alt="twitter" src="http://michaelburnley.com/assets/images/twitter.png" /></a></div>
+          <div className="social-link"><a href="https://www.linkedin.com/in/michael-burnley-93921027"><img alt="linkedin" src="http://michaelburnley.com/assets/images/linkedin.png" /></a></div>
+          <div className="social-link"><a href="https://instagram.com/michaelburnley"><img alt="instagram" src="http://michaelburnley.com/assets/images/instagram.png" /></a></div>
+        </div>
+      </div>
+      <div className="hello_block">
+        <div className="btn" onClick={resumeClick()}>Resume</div>
+        <div className="btn" onClick={contactClick()}>Contact</div>
+      </div>
+    </div>
+  )
+}
 
 class SiteBlock extends Component {
   
@@ -12,16 +51,7 @@ class SiteBlock extends Component {
   }
 
   toggleExpand() {
-
-    if (!this.state.isExpanded) {
-      this.setState({
-        isExpanded: true
-      });
-    } else {    
-      this.setState({
-        isExpanded: false
-      })
-    }
+    this.state.isExpanded ? this.setState({ isExpanded: false }) : this.setState({ isExpanded: true })
   }
 
  createBlocks() {
@@ -30,7 +60,7 @@ class SiteBlock extends Component {
     this.props.blocks.map(function(block){
       console.log("entering map");
       arr.push(
-        <div className="site-block">
+        <div className="site-block" onClick={this.toggleExpand.bind(this)}>
           <div className="title-block">
             <img className="sb-header" src={block.header} alt={block.image_alt}/>
             <h2 className="title">{block.title}</h2>
@@ -67,7 +97,7 @@ const ContactForm = (props) => {
 
   return(
       <div id="contact">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit()}>
           <label>
           Name
           <input type="text" />
@@ -84,6 +114,8 @@ const ContactForm = (props) => {
           Content
           <textarea type="textarea" />
           </label>
+
+          <input type="submit" />
         </form>
       </div>
   );
@@ -118,12 +150,10 @@ class App extends Component {
 
   }
 
-
-
-
   render() {
     return (
       <div>
+      <HelloBlock />
       <SiteBlock 
         blocks={this.state.blocks}
         handleClick={this.expandSection}/>
