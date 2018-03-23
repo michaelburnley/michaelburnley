@@ -91,7 +91,9 @@ class SiteBlock extends Component {
 
 
 const ContactForm = (props) => {
+
   let handleSubmit = (e) => {
+    e.preventDefault();
     props.handleSubmit(e);
   }
 
@@ -143,7 +145,7 @@ class App extends Component {
   }
 
   contactSubmit(e) {
-
+    
   }
 
   expandSection() {
