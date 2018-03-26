@@ -3,20 +3,27 @@ import './App.css';
 import logo from './logo.png'
 import sb from './site-block-information.json'
 
-const ResumeModal = () => {
-  return(
-    <a href="" download="Resume-MichaelBurnley">Download</a>
-  );
-}
-
-const HelloBlock = () => {
-
-  const contactClick = (e) => {
-    return <ContactForm />;
+const ExpandButton = (props) => {
+  var handleClick = (e) => {
+    e.preventDefault();
+    props.handleClick();
   }
 
-  const resumeClick = (e) => {
-    return <ResumeModal />
+  return(
+    <span className='expand' onClick={handleClick}>+expand</span>
+  )
+}
+
+const HelloBlock = (props) => {
+
+  var contactClick = (e) => {
+    e.preventDefault();
+    props.toggle();
+  }
+
+  var resumeClick = (e) => {
+    e.preventDefault();
+    props.toggle();
   }
 
   return(
@@ -36,55 +43,36 @@ const HelloBlock = () => {
         </div>
       </div>
       <div className="hello_block">
-        <div className="btn" onClick={resumeClick()}>Resume</div>
-        <div className="btn" onClick={contactClick()}>Contact</div>
+        <div className="btn" onClick={resumeClick}>Resume</div>
+        <div className="btn" onClick={contactClick}>Contact</div>
       </div>
     </div>
   )
 }
 
-// const SiteBlock = (props) => {
+const SiteBlockContainer = (props) => {
 
-//   var isExpanded = false;
+  let arr = [];
 
-//   const toggleExpand = () => {
-//     isExpanded ? isExpanded = false  : isExpanded = true;
-//   }
+  const createBlocks = () => {
+    props.blocks.forEach((block) => {
+      arr.push(
+        <SiteBlock
+          block={block} 
+          handleClick={props.handleClick}
+          key={block.title} />
+      );
+    })
 
-//   const createBlocks = () => {
-//     let arr = [];
-//     console.log("in createBlocks");
-//     props.blocks.map(function(block){
-//       console.log("entering map");
-//       arr.push(
-//         <div className="site-block">
-//           <div className="title-block">
-//             <img className="sb-header" src={block.header} alt={block.image_alt}/>
-//             <h2 className="title">{block.title}</h2>
-//             <ExpandButton
-//             handleClick={toggleExpand} />
-//           </div>
-//           <div className="content">
-//             {
-//               isExpanded ? block.content : null
-//             }
-//           </div>
-//         </div>
-//       );
+    return arr;
+  }
 
-//     });
-
-//     return arr;
-//   }
-
-//   return (
-//     <div className="container">
-//       {createBlocks()}
-//     </div>
-//   );
-
-
-// }
+  return (
+    <div className="container">
+      {createBlocks()}
+    </div>
+  );
+}
 
 class SiteBlock extends Component {
   
@@ -99,37 +87,21 @@ class SiteBlock extends Component {
     this.state.isExpanded ? this.setState({ isExpanded: false }) : this.setState({ isExpanded: true })
   }
 
- createBlocks() {
-    let arr = [];
-    console.log("in createBlocks");
-    this.props.blocks.map(function(block){
-      console.log("entering map");
-      arr.push(
+  render() {
+    return (
         <div className="site-block">
           <div className="title-block">
-            <img className="sb-header" src={block.header} alt={block.image_alt}/>
-            <h2 className="title">{block.title}</h2>
+            <img className="sb-header" src={this.props.block.header} alt={this.props.block.image_alt}/>
+            <h2 className="title">{this.props.block.title}</h2>
             <ExpandButton
             handleClick={this.toggleExpand.bind(this)} />
           </div>
           <div className="content">
             {
-              this.state.isExpanded ? block.content : null
+              this.state.isExpanded ? this.props.block.content : null
             }
           </div>
         </div>
-      );
-
-    }.bind(this));
-
-    return arr;
-  }
-
-  render() {
-    return (
-      <div className="container">
-        {this.createBlocks()}
-      </div>
     );
   }
 }
@@ -137,13 +109,20 @@ class SiteBlock extends Component {
 
 const ContactForm = (props) => {
 
-  let handleSubmit = (e) => {
+  console.log("in contact form");
+  
+  const handleSubmit = (e) => {
     props.handleSubmit(e);
+  }
+
+  const handleClose = (e) => {
+    props.toggle();
   }
 
   return(
       <div id="contact">
-        <form onSubmit={handleSubmit()}>
+        <form onSubmit={handleSubmit}>
+        <div id="close" onClick={handleClose}>x</div>
           <label>
           Name
           <input type="text" />
@@ -168,23 +147,20 @@ const ContactForm = (props) => {
 
 }
 
-const ExpandButton = (props) => {
-  var handleClick = (e) => {
-    e.preventDefault();
-    props.handleClick();
-  }
-
-  return(
-    <span className='expand' onClick={handleClick}>+expand</span>
-  )
-}
-
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      blocks: sb
+      blocks: sb,
+      overlay: false
+    };
+  }
+
+  contactToggle() {
+    if(this.state.overlay) {
+      this.setState({overlay: false});
+    } else {
+      this.setState({overlay: true});
     }
   }
 
@@ -199,12 +175,15 @@ class App extends Component {
   render() {
     return (
       <div>
-      <HelloBlock />
-      <SiteBlock 
-        blocks={this.state.blocks}
-        handleClick={this.expandSection}/>
-      <ContactForm 
-        handleSubmit={this.contactSubmit} />
+        <HelloBlock
+          show={this.state.overlay}
+          toggle={this.contactToggle.bind(this)} />
+        <SiteBlockContainer 
+          blocks={this.state.blocks}
+          handleClick={this.expandSection.bind(this)} />
+          {
+            this.state.overlay ?  <ContactForm handleSubmit={this.contactSubmit.bind(this)} toggle={this.contactToggle.bind(this)} /> : null
+          }
       </div>
     );
   }

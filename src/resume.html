@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>(Coffee + Code) - Sleep | Michael Burnley</title>
+  <meta name="description" content="I make things. Especially games.">
+  <meta name="author" content="Michael Burnley">
+  <meta name="theme-color" content="#FFFFFF">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link rel="stylesheet" href="/assets/css/skeleton.css"> <!-- Shout out to the best boilerplate out there, skeleton.css -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Arvo:400,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Maven+Pro:400,500' rel='stylesheet' type='text/css'>
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="/assets/js/jquery-1.11.3.min.js"></script>
+  <script src="/assets/js/slideout.min.js"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65593260-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <script>
+    $(function() 
+    {
+        $('a[href*=#]:not([href=#])').click(function()
+        {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) 
+          {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+              if (target.length)
+              {
+                $('html,body').animate({scrollTop: target.offset().top}, 1000);
+                return false;
+              }
+          }
+        });
+    });
+  </script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+</head>
+<body>
+
+<!--
+/*********************************************************************/
+
+Hello there! 
+
+Thanks for taking a deeper look into my work! As you can see, I hand-coded pretty much everything here and do a lot of documentation. But I'll get out of your way and let you take a look. Here are some of the tools I used:
+
+Skeleton.css
+Slideout.js
+Jotform
+
+If you notice any problems, feel free to shoot me an email at yoursitesucks@michaelburnley.com.
+
+/*********************************************************************/
+-->
+
+  <nav id="menu" class="menu slideout-menu">
+    <header>
+      <a alt="Back to the homepage, we go!" class="unstyled white" href="/">
+        <h2 class="white"><img class="logo" src="/assets/images/michaelLogo_ver4.png"></h2></a>
+        <ul>
+          <a class="unstyled" href="/games"><li>Game Dev</li></a>
+          <a class="unstyled" href="/web"><li>Web Dev</li></a>
+          <a class="unstyled" href="/resume"><li>Resume</li></a>
+          <a class="unstyled" href="/about"><li>About Me</li></a>
+        </ul>
+    </header>
+  </nav>
+  <main id="panel" class="panel slideout-panel">
+    <header>  
+      <button class="toggle-button button slide-button">☰</button>
+    </header> 
+    <div class="container">
+      <div class="hero center">
+        <h1 class="pageheader">Resume</h1>
+        <img class="sitePreview" src="http://michaelburnley.com/assets/images/csharpsnapshot.png">
+        <div class="cta">
+          <a href="/resume" class="button center">Resume</a>
+          <a href="#contact" class="button button-primary center">Contact Me</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+        <br></br>
+          <div class="row">
+          <h3 class="center sectionheader">Skills</h3>
+          <br></br>
+          <section id = "gamesHome">
+            <div class="column">
+              <p>I am a game designer with eight years of experience programming in C++ and working within Unity 3D. I have been designing and programming games as a hobby for 6+ years, and made my first attempt at commercial game development at the end of 2011. Much of my time is spent developing websites and working on my own personal projects/businesses.</p>
+            </div>
+            <div class="logos">
+              <div class="row center">
+                <div class="one-third column">
+                  <a href="https://unity3d.com">
+                  <img alt="Unity 3D" class="sitepreview" style="width:100%;" src="http://michaelburnley.com/assets/images/unity-logo.png">
+                  </a>
+                </div>
+                <div class="one-third column">
+                  <img alt="C++" class="sitepreview" style="width:38%;" src="http://michaelburnley.com/assets/images/cplusplus.png">
+                </div>
+                <div class="one-third column">
+                  <img alt="HTML 5" class="sitepreview" style="width:38%;" src="http://michaelburnley.com/assets/images/html5.png">
+                </div>
+              </div>
+              <div class="row center">
+                <div class="one-third column">
+                  <a href="https://www.ruby-lang.org/en/">
+                  <img alt="Ruby" class="sitepreview" style="width:35%;" src="http://michaelburnley.com/assets/images/ruby.png">
+                  </a>
+                </div>
+                <div class="one-third column">
+                  <a href="https://www.python.org/">
+                  <img alt="Python" class="sitepreview" style="width:100%;" src="http://michaelburnley.com/assets/images/python-logo-master-v3-TM.png">
+                  </a>
+                </div>
+                <div class="one-third column">
+                  <span style="font-size: 3em;">+ MORE</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          </div>
+          <br /><br />
+          <div class="row">
+          <h3 class="center sectionheader">Development Skills</h3>
+          <br /><br />
+          <section>
+              <ul class="skill-list">
+                <li class="skill">
+                  <h3>C++</h3>
+                  <progress class="skill-1" max="100" value="95">
+                    <strong>Skill Level: 95%</strong>
+                  </progress>
+                </li>
+                <li class="skill">
+                  <h3>HTML/CSS</h3>
+                  <progress class="skill-4" max="100" value="90">
+                    <strong>Skill Level: 90%</strong>
+                  </progress>
+                </li>
+                <li class="skill">
+                  <h3>Unity 3D</h3>
+                  <progress class="skill-3" max="100" value="85">
+                    <strong>Skill Level: 85%</strong>
+                  </progress>
+                </li>
+                <li class="skill">
+                  <h3>Ruby</h3>
+                  <progress class="skill-2" max="100" value="75">
+                    <strong>Skill Level: 75%</strong>
+                  </progress>
+                </li>
+                <li class="skill">
+                  <h3>Python</h3>
+                  <progress class="skill-5" max="100" value="70">
+                    <strong>Skill Level: 70%</strong>
+                  </progress>
+                </li>
+              </ul>
+          </section>
+          </div>
+          <br /><br />
+          <div class="row">
+          <h3 class="center sectionheader">Work History</h3>
+          <br /><br />
+          <section id = "gamesHome">
+            <div class="row">
+              <div class="one-half column">
+                <h4 class="center"><a href="http://dokidokidesu.com">Doki Doki Desu</a> / <a href="http://kawaiicrate.com">Kawaii Crate</a></h4>
+                <div class="center">
+                  <span class="bold">Founder </span>- Los Angeles, CA
+                  <br>
+                  <span>May 2014 - now</span>
+                </div>
+                <br>
+                <ul class="resumeBullet">
+                  <li>Web Development</li>
+                  <li>Online Marketing</li>
+                  <li>Business Development</li>
+                  <li>Customer Service</li>
+                </ul>
+                <a href="http://kawaiicrate.com"><img class="screenshots mobile-ss" src="http://michaelburnley.com/assets/images/kawaiiCrateScreenshot.PNG"></a>
+                <br><br>
+                <p class="resumeDescription">At my companies, Doki Doki Desu and Kawaii Crate, I manage our online communications and development. At 1.5 years of operation, we’ve been successful and growing fast within our niche.</p>
+              </div>
+              <div class="one-half column">
+              <h4 class="center"><a href="http://zooshoo.com">ZOOSHOO</a></h4>
+              <div class="center">
+                <span class="bold">Tech Management Specialist </span>- Chino, CA
+                <br>
+                <span>May 2012 - now</span>
+              </div>
+              <br>
+              <ul class="resumeBullet">
+                <li>Data Management</li>
+                <li>Online Marketing</li>
+                <li>Web Development</li>
+                <li>E-commerce</li>
+              </ul>
+              <a href="http://zooshoo.com"><img class="screenshots mobile-ss" src="http://michaelburnley.com/assets/images/zooshooScreenshot.PNG"></a>
+              <br><br>
+                <p class="resumeDescription">At ZOOSHOO I work as IT, being solely responsible for implementing new features into the website as well as develop new tools and for use by our business development team.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column">
+                <h4 class="center">Cybercow Games</h4>
+                <div class="center">
+                  <span class="bold">Founder & Lead Programmer </span>- Pomona, CA
+                  <br>
+                  <span>January 2011 - March 2013</span>
+                </div>
+                <br>
+                <ul class="resumeBullet">
+                  <li>Project Management</li>
+                  <li>Tools Developement</li>
+                  <li>Application/Game Programming</li>
+                  <li>Game Design</li>
+                </ul>
+                <a class="hide" href="http://zooshoo.com"><img class="full-width" src="http://placehold.it/400x300"></a>
+                <p class="resumeDescription">I worked as Project Manager and Lead Programmer for our development team (3 programmers, 2 artists, and 1 sound designer.) We were developing a mobile, free-to-play game with minor micro-transactions as our first game as a formal company, designed by myself and Markise Gladney.</p>
+              </div>
+              <div class="one-half column">
+              <h4 class="center">UPS</h4>
+              <div class="center">
+                <span class="bold">Package Data Manager </span>- Goleta, CA
+                <br>
+                <span>March 2010 - May 2012</span>
+              </div>
+              <br>
+              <ul class="resumeBullet">
+                <li>Technical Support</li>
+                <li>Data Correction</li>
+                <li>Excel Work</li>
+                <li>Operations</li>
+              </ul>
+              <a class="hide" href="http://zooshoo.com"><img class="full-width" src="http://placehold.it/400x300"></a>
+                <p class="resumeDescription">At UPS I was the youngest at my hub hired to a management position. I worked within a team of 4 to manage operations during the early morning rush.</p>
+              </div>
+            </div>
+          </section>
+          </div>
+          <br></br>
+          <div class="row">
+          <h2 class="center sectionheader">Want to get in touch?</h2>
+          <section id = "contact">
+            <div id="contactblurb" class="column center">
+            Feel free to tweet at me on <span id="twitterText"><a class="unstyled" target="_blank" href="http://twitter.com/michaelburnley">twitter</a></span>, or shoot me an <span id="emailText"><a class="unstyled" target="_blank" href="mailto:about@michaelburnley.com">email</a></span>.
+            </div>
+          </section>
+          </div>
+          </div>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <div id="socialbuttons">
+      <a target="_blank" href="https://www.linkedin.com/in/michael-burnley-93921027"><img class="socialLinks-linkedinblue" src="http://michaelburnley.com/assets/images/linkedin.png"></a>
+      <a target="_blank" href="https://github.com/michaelburnley"><img class="socialLinks-white" src="http://michaelburnley.com/assets/images/github.png"></a>
+      <a target="_blank" href="https://twitter.com/michaelburnley"><img class="socialLinks-twitterblue" src="http://michaelburnley.com/assets/images/twitter.png"></a>
+      <a target="_blank" href="https://instagram.com/michaelburnley"><img class="socialLinks-instagray" src="http://michaelburnley.com/assets/images/instagram.png"></a>
+    </div>
+    <div id="LinkList"></div>
+    <div id="copyright">This site designed and built by me, <a href="http://michaelburnley.com" target="_blank">Michael Burnley</a>.</div>
+  </footer>
+
+  <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script>
+        var slideout = new Slideout({
+          'panel': document.getElementById('panel'),
+          'menu': document.getElementById('menu'),
+          'padding': 256,
+          'tolerance': 70
+        });
+
+        // Toggle button
+        document.querySelector('.toggle-button').addEventListener('click', function() {
+          slideout.toggle();
+        });
+  </script>
+</body>
+</html>
