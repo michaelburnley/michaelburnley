@@ -22,7 +22,9 @@ const HelloBlock = () => {
   return(
     <div className="hello">
       <div className="hello_block">
-        <img src={logo} id="logo" alt="logo" />
+        <div id="img_block">
+          <img src={logo} id="logo" alt="logo" />
+        </div>
       </div>
       <div className="hello_block">
         <p>My name is Michael Burnley and I am a web and game developer.</p>
@@ -40,6 +42,49 @@ const HelloBlock = () => {
     </div>
   )
 }
+
+// const SiteBlock = (props) => {
+
+//   var isExpanded = false;
+
+//   const toggleExpand = () => {
+//     isExpanded ? isExpanded = false  : isExpanded = true;
+//   }
+
+//   const createBlocks = () => {
+//     let arr = [];
+//     console.log("in createBlocks");
+//     props.blocks.map(function(block){
+//       console.log("entering map");
+//       arr.push(
+//         <div className="site-block">
+//           <div className="title-block">
+//             <img className="sb-header" src={block.header} alt={block.image_alt}/>
+//             <h2 className="title">{block.title}</h2>
+//             <ExpandButton
+//             handleClick={toggleExpand} />
+//           </div>
+//           <div className="content">
+//             {
+//               isExpanded ? block.content : null
+//             }
+//           </div>
+//         </div>
+//       );
+
+//     });
+
+//     return arr;
+//   }
+
+//   return (
+//     <div className="container">
+//       {createBlocks()}
+//     </div>
+//   );
+
+
+// }
 
 class SiteBlock extends Component {
   
@@ -60,7 +105,7 @@ class SiteBlock extends Component {
     this.props.blocks.map(function(block){
       console.log("entering map");
       arr.push(
-        <div className="site-block" onClick={this.toggleExpand.bind(this)}>
+        <div className="site-block">
           <div className="title-block">
             <img className="sb-header" src={block.header} alt={block.image_alt}/>
             <h2 className="title">{block.title}</h2>
@@ -93,7 +138,6 @@ class SiteBlock extends Component {
 const ContactForm = (props) => {
 
   let handleSubmit = (e) => {
-    e.preventDefault();
     props.handleSubmit(e);
   }
 
@@ -114,10 +158,10 @@ const ContactForm = (props) => {
           </label>
           <label>
           Content
-          <textarea type="textarea" />
+          <input type="text" />
           </label>
 
-          <input type="submit" />
+          <input id="sub-btn" type="submit" />
         </form>
       </div>
   );
