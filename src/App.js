@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css'; 
 import logo from './logo.png';
 import sb from './site-block-information.json';
-import RS from './resume.js';
+// import RS from './resume.js';
 
 const ExpandButton = (props) => {
   var handleClick = (e) => {
@@ -88,6 +88,11 @@ class SiteBlock extends Component {
     this.state.isExpanded ? this.setState({ isExpanded: false }) : this.setState({ isExpanded: true })
   }
 
+  buildHTML() {
+    const cont_block = require(this.props.block.content).default;
+    return cont_block;
+  }
+
   render() {
     return (
         <div className="site-block">
@@ -99,7 +104,7 @@ class SiteBlock extends Component {
           </div>
           <div className="content">
             {
-              this.state.isExpanded ? <RS /> : null
+              this.state.isExpanded ? this.buildHTML() : null
             }
           </div>
         </div>
