@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 form {
   width: 100%;
   width:340px;
@@ -27,11 +29,31 @@ input {
   border-bottom:2px solid #bebed2;
 }
 
+textarea {
+  width: 100%;
+  width:100%;
+  padding:10px;
+  box-sizing:border-box;
+  background:none;
+  outline:none;
+  resize:none;
+  border:0;
+  font-family:'Montserrat',sans-serif;
+  transition:all .3s;
+  border-bottom:2px solid #bebed2;
+}
+
 input:focus {
   border-bottom:2px solid #78788c;
 }
 
-label:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:#5a5a5a}
+label:before {
+  content:attr(type);
+  display:block;
+  margin:28px 0 0;
+  font-size:14px;
+  color:#5a5a5a;
+}
 
 #sub-btn {
   float:right;

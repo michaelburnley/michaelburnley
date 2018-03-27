@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'; 
-import logo from './logo.png'
-import sb from './site-block-information.json'
+import logo from './logo.png';
+import sb from './site-block-information.json';
+import RS from './resume.js';
 
 const ExpandButton = (props) => {
   var handleClick = (e) => {
@@ -94,11 +95,11 @@ class SiteBlock extends Component {
             <img className="sb-header" src={this.props.block.header} alt={this.props.block.image_alt}/>
             <h2 className="title">{this.props.block.title}</h2>
             <ExpandButton
-            handleClick={this.toggleExpand.bind(this)} />
+              handleClick={this.toggleExpand.bind(this)} />
           </div>
           <div className="content">
             {
-              this.state.isExpanded ? this.props.block.content : null
+              this.state.isExpanded ? <RS /> : null
             }
           </div>
         </div>
@@ -108,8 +109,6 @@ class SiteBlock extends Component {
 
 
 const ContactForm = (props) => {
-
-  console.log("in contact form");
   
   const handleSubmit = (e) => {
     props.handleSubmit(e);
@@ -137,9 +136,8 @@ const ContactForm = (props) => {
           </label>
           <label>
           Content
-          <input type="text" />
+          <textarea type="text" />
           </label>
-
           <input id="sub-btn" type="submit" />
         </form>
       </div>
